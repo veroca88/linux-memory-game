@@ -1,6 +1,11 @@
 body {
   background-color: rgb(66, 66, 66);
   text-align: center;
+  color: greenyellow;
+}
+
+h3 {
+  margin: 0;
 }
 
 .main {

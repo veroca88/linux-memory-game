@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     onPressCardId = [];
     score.textContent = winningCards.length;
     if (winningCards.length === arrayOfCards.length / 2) {
-      message.textContent =
+      boxMessage.textContent =
         "Everithing that has a beginning has an end. You win!!!";
     }
   }
