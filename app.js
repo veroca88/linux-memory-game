@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       name: "debian",
-      img: "images/debian.jpg",
+      img: "images/debian.png",
     },
     {
       name: "fedora",
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       name: "popos",
-      img: "images/popos.jpg",
+      img: "images/popos.png",
     },
     {
       name: "redhat",
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       name: "ubuntu",
-      img: "images/ubuntu.jpg",
+      img: "images/ubuntu.png",
     },
     {
       name: "archlinux",
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       name: "debian",
-      img: "images/debian.jpg",
+      img: "images/debian.png",
     },
     {
       name: "fedora",
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       name: "popos",
-      img: "images/popos.jpg",
+      img: "images/popos.png",
     },
     {
       name: "redhat",
@@ -62,60 +62,59 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       name: "ubuntu",
-      img: "images/ubuntu.jpg",
+      img: "images/ubuntu.png",
     },
   ];
   arrayOfCards.sort(() => 0.5 - Math.random());
   const grid = document.querySelector(".grid-container");
 
   const score = document.querySelector("#score");
-  const message = document.querySelector(".message-box");
+  const boxMessage = document.querySelector(".message-box");
 
-  const onPressCard = [];
-  const onPressCardId = [];
-  const winningCards = [];
+  let onPressCard = [];
+  let onPressCardId = [];
+  let winningCards = [];
 
   // Create the board and assign back of card and id
 
   function createBoard() {
     for (let i = 0; i < arrayOfCards.length; i++) {
-      const containerImage = document.createElement("div");
       const card = document.createElement("img");
-      containerImage.setAttribute("backgroundColor", "black");
 
       card.setAttribute("src", "images/matrix.png");
       card.setAttribute("data-id", i);
       card.addEventListener("click", flipCard);
-      containerImage.appendChild(card);
-      grid.appendChild(containerImage);
+      grid.appendChild(card);
     }
   }
-  // Check pair of card
+  //Message promt
 
-  function checkPair() {
+  function message(status) {
     const youWinMessage = "Deja vu!!!";
     const youLostMessage =
       "I can only show you the door. You're the one that has to walk through it. Try again...";
+    const someInfo = document.querySelector(".boxMessage");
+  }
+
+  // Check pair of card
+
+  function checkPair() {
     const cards = document.querySelectorAll("img");
     const firstTry = onPressCardId[0];
     const secondTry = onPressCardId[1];
 
     if (onPressCard[0] === onPressCard[1]) {
-      console.log("first", onPressCard[0], "second", onPressCard[1]);
-      message.textContent = youWinMessage;
-      cards[firstTry].setAttribute("src", "images/matrix.png");
-      cards[secondTry].setAttribute("src", "images/matrix.png");
       winningCards.push(onPressCard);
     } else {
-      (message.textContent = youLostMessage),
-        cards[firstTry].setAttribute("src", "images/matrix.png"),
-        cards[secondTry].setAttribute("src", "images/matrix.png");
+      cards[firstTry].setAttribute("src", "images/matrix.png");
+      cards[secondTry].setAttribute("src", "images/matrix.png");
     }
     onPressCard = [];
     onPressCardId = [];
     score.textContent = winningCards.length;
     if (winningCards.length === arrayOfCards.length / 2) {
-      score.textContent = "Everithing that has a beginning has an end.";
+      message.textContent =
+        "Everithing that has a beginning has an end. You win!!!";
     }
   }
 
@@ -127,6 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
     onPressCardId.push(cardId);
     this.setAttribute("src", arrayOfCards[cardId].img);
     if (onPressCard.length === 2) {
+      console.log("length", onPressCard.length);
       setTimeout(checkPair, 500);
     }
   }

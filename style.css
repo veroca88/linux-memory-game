@@ -1,6 +1,87 @@
+body {
+  background-color: rgb(66, 66, 66);
+  text-align: center;
+}
+
+.main {
+  display: inline-block;
+  background-color: #000;
+  height: 500px;
+  width: 600px;
+  border: 60px solid rgb(192, 192, 192);
+  border-top-left-radius: 50% 2%;
+  border-top-right-radius: 50% 2%;
+  border-bottom-left-radius: 50% 1%;
+  border-bottom-right-radius: 50% 1%;
+}
+
+.main-border {
+  display: inline-block;
+  border: 5px solid rgb(165, 165, 165);
+  height: 500px;
+  width: 600px;
+}
+
 .grid-container {
-  display: flex;
+  align-items: center;
+  display: inline-flex;
   flex-wrap: wrap;
   height: 300px;
   width: 400px;
+}
+
+.bottom-side {
+  display: inline-flex;
+  background-color: rgb(180, 180, 180);
+  border-top: 5px solid rgb(165, 165, 165);
+  border-bottom: 5px solid rgb(192, 192, 192);
+  border-bottom-left-radius: 50% 5%;
+  border-bottom-right-radius: 50% 5%;
+  margin-top: 47px;
+  width: 550px;
+  height: 40px;
+  z-index: -1;
+  justify-content: space-around;
+}
+
+.container-multiple {
+  display: inline;
+  vertical-align: top;
+}
+
+.multiple-buttons {
+  display: inline-block;
+  background-color: rgb(192, 192, 192);
+  border: 3px solid rgb(165, 165, 165);
+  border-radius: 5%;
+  width: 20px;
+  height: 20px;
+}
+.big-button {
+  display: inline-block;
+  background-color: rgb(182, 182, 182);
+  border-left: 3px solid rgb(165, 165, 165);
+  border-right: 3px solid rgb(165, 165, 165);
+  width: 250px;
+  height: 45px;
+}
+
+.power {
+  display: inline-flex;
+}
+.power-on {
+  display: inline-block;
+  vertical-align: top;
+  background-color: rgb(192, 192, 192);
+  border: 3px solid rgb(165, 165, 165);
+  width: 40px;
+  height: 20px;
+  border-radius: 5%;
+}
+
+.ligth {
+  border: 5px solid rgb(133, 27, 0);
+  border-radius: 50%;
+  height: 2px;
+  margin: 5px;
 }
