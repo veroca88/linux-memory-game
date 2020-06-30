@@ -8,10 +8,17 @@
   <body>
     <div class="main">
       <div class="main-border">
-        <h3>Score:<span id="score"></span></h3>
-        <div class="message-box"></div>
-        <div class="grid-container"></div>
-        <script src="app.js" charset="UTF-8"></script>
+        <div class="grid-container">
+          <h3>Rules of the game</h3>
+          <form action="index.html" class="levels" method="GET">
+            <button type="submit" name="easy" class="pill blue">
+              Blue
+            </button>
+            <button type="submit" name="hard" class="pill red">
+              Red
+            </button>
+          </form>
+        </div>
       </div>
       <div class="bottom-side">
         <div class="container-multiple">
@@ -26,7 +33,5 @@
         </div>
       </div>
     </div>
-    <span id="count">0</span>
-    <a href="#" id="startClock"></a>
   </body>
 </html>

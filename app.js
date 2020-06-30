@@ -66,18 +66,56 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
   arrayOfCards.sort(() => 0.5 - Math.random());
-  const grid = document.querySelector(".grid-container");
 
+  const grid = document.querySelector(".grid-container");
   const score = document.querySelector("#score");
   const boxMessage = document.querySelector(".message-box");
+  const crono = document.querySelector("#startClock");
+  const level = window.location.search;
 
   let onPressCard = [];
   let onPressCardId = [];
   let winningCards = [];
+  let counter = 0;
+
+  function startGame(dificulty) {
+    console.log("Start Game - difficulty", dificulty);
+    if (dificulty === "?easy=") counter = 45;
+    if (dificulty === "?hard=") counter = 25;
+    console.log("counter", counter);
+    setInterval(function () {
+      counter--;
+      if (counter >= 0) {
+        span = document.getElementById("count");
+        span.innerHTML = counter;
+      }
+      if (counter === 0) {
+        alert("Game Over!");
+        clearInterval(counter);
+      }
+    }, 1000);
+  }
+
+  // Reload board
+
+  function reloadBoard() {}
+
+  // Start cronometer
+
+  function cronometer() {
+    crono.addEventListener("click", startGame(level));
+  }
+
+  // funtion stop Cronometer
+
+  function stopGame() {
+    clearInterval(counter);
+  }
 
   // Create the board and assign back of card and id
 
   function createBoard() {
+    console.log("LEVEL", level);
     for (let i = 0; i < arrayOfCards.length; i++) {
       const card = document.createElement("img");
 
@@ -86,14 +124,6 @@ document.addEventListener("DOMContentLoaded", () => {
       card.addEventListener("click", flipCard);
       grid.appendChild(card);
     }
-  }
-  //Message promt
-
-  function message(status) {
-    const youWinMessage = "Deja vu!!!";
-    const youLostMessage =
-      "I can only show you the door. You're the one that has to walk through it. Try again...";
-    const someInfo = document.querySelector(".boxMessage");
   }
 
   // Check pair of card
@@ -114,7 +144,8 @@ document.addEventListener("DOMContentLoaded", () => {
     score.textContent = winningCards.length;
     if (winningCards.length === arrayOfCards.length / 2) {
       boxMessage.textContent =
-        "Everithing that has a beginning has an end. You win!!!";
+        "Everything that has a beginning has an end. You win!!!";
+      stopGame();
     }
   }
 
@@ -130,6 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(checkPair, 500);
     }
   }
+
   createBoard();
+  cronometer();
 });
-arrayOfCards;
