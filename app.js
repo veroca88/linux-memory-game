@@ -71,19 +71,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const score = document.querySelector("#score");
   const boxMessage = document.querySelector(".message-box");
   const crono = document.querySelector("#startClock");
+  const footer = document.querySelector("#footer");
   const level = window.location.search;
 
   let onPressCard = [];
   let onPressCardId = [];
   let winningCards = [];
   let counter = 0;
+  let time;
 
   function startGame(dificulty) {
     console.log("Start Game - difficulty", dificulty);
     if (dificulty === "?easy=") counter = 45;
     if (dificulty === "?hard=") counter = 25;
-    console.log("counter", counter);
-    setInterval(function () {
+    time = setInterval(function () {
       counter--;
       if (counter >= 0) {
         span = document.getElementById("count");
@@ -91,14 +92,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       if (counter === 0) {
         alert("Game Over!");
+        window.location.href = "aboutGame.html";
         clearInterval(counter);
       }
     }, 1000);
   }
-
-  // Reload board
-
-  function reloadBoard() {}
 
   // Start cronometer
 
@@ -109,13 +107,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // funtion stop Cronometer
 
   function stopGame() {
-    clearInterval(counter);
+    clearInterval(time);
   }
 
   // Create the board and assign back of card and id
 
   function createBoard() {
-    console.log("LEVEL", level);
     for (let i = 0; i < arrayOfCards.length; i++) {
       const card = document.createElement("img");
 
@@ -143,9 +140,10 @@ document.addEventListener("DOMContentLoaded", () => {
     onPressCardId = [];
     score.textContent = winningCards.length;
     if (winningCards.length === arrayOfCards.length / 2) {
-      boxMessage.textContent =
-        "Everything that has a beginning has an end. You win!!!";
+      boxMessage.textContent = "Everything that has a beginning has an end.";
       stopGame();
+      alert("You win!");
+      window.location.href = "aboutGame.html";
     }
   }
 
