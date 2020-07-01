@@ -71,7 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const score = document.querySelector("#score");
   const boxMessage = document.querySelector(".message-box");
   const crono = document.querySelector("#startClock");
-  const footer = document.querySelector("#footer");
   const level = window.location.search;
 
   let onPressCard = [];
