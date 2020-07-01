@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       if (counter === 0) {
         alert("Game Over!");
-        window.location.href = "aboutGame.html";
+        window.location.href = "index.html";
         clearInterval(counter);
       }
     }, 1000);
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
       boxMessage.textContent = "Everything that has a beginning has an end.";
       stopGame();
       alert("You win!");
-      window.location.href = "aboutGame.html";
+      window.location.href = "index.html";
     }
   }
 

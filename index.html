@@ -8,10 +8,29 @@
   <body>
     <div class="main">
       <div class="main-border">
-        <h3>Score:<span id="score"></span></h3>
-        <div class="message-box"></div>
-        <div class="grid-container"></div>
-        <script src="app.js" charset="UTF-8"></script>
+        <div class="grid-container">
+          <h3>
+            Rules of the game
+            <hr />
+            <p>
+              This is a card game in which all of the cards are laid face down
+              and two cards are flipped face up over each turn. The object of
+              the game is to turn over pairs of matching cards. You have two
+              levels, This is your last chance to decide which level you want to
+              play. After this, there is no turning back. You take the blue
+              pill—the story goes easy. You take the red pill—you stay in
+              Wonderland, and the story goes difficult.
+            </p>
+          </h3>
+          <form action="index.html" class="levels" method="GET">
+            <button type="submit" name="easy" class="pill blue">
+              Blue
+            </button>
+            <button type="submit" name="hard" class="pill red">
+              Red
+            </button>
+          </form>
+        </div>
       </div>
       <div class="bottom-side">
         <div class="container-multiple">
@@ -26,7 +45,5 @@
         </div>
       </div>
     </div>
-    <span id="count">0</span>
-    <a href="#" id="startClock"></a>
   </body>
 </html>
