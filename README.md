@@ -8,6 +8,6 @@ This is a card game in which all of the cards are laid face down and two cards a
 
 ## Levels
 
-There are three levels: - Blue pill (easy) - Red pill (difficult)
+- There are two levels: > Blue pill (easy) > Red pill (difficult)
 
 Clock is ticking.
